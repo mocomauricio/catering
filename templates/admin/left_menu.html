@@ -1,0 +1,175 @@
+<ul class="nav" id="side-menu">
+	<li>
+		<a class="active" href="/admin/"><i class="fa fa-home fa-fw"></i> INICIO </a>
+	</li>                      
+
+{% if '/admin/auth' in request.path or '/admin/sistema' in request.path %}
+	{% if perms.auth.add_user or perms.auth.change_user or perms.auth.delete_user %}
+	<li>
+		<a href="#">USUARIOS<span class="fa arrow"></span></a>
+		<ul class="nav nav-second-level">
+			{% if perms.auth.add_user %}
+			<li>
+				<a href="/admin/auth/user/add/">AGREGAR</a>
+			</li>
+			{% endif %}
+			
+			<li>
+				<a href="/admin/auth/user/">LISTAR</a>
+			</li>
+		</ul>
+		<!-- /.nav-second-level -->
+	</li>
+	{% endif %}
+	
+	{% if perms.auth.add_group or perms.auth.change_group or perms.auth.delete_group %}
+	<li>
+		<a href="#">GRUPOS<span class="fa arrow"></span></a>
+		<ul class="nav nav-second-level">
+			{% if perms.auth.add_group %}
+			<li>
+				<a href="/admin/auth/group/add/">AGREGAR</a>
+			</li>
+			{% endif %}
+	
+			<li>
+				<a href="/admin/auth/group/">LISTAR</a>
+			</li>
+		</ul>
+		<!-- /.nav-second-level -->
+	</li>
+	{% endif %}
+
+{% elif '/admin/clientes' in request.path %}
+
+	{% if perms.clientes.add_cliente %}
+	<li>
+		<a href="/admin/clientes/cliente/add/">AGREGAR</a>
+	</li>
+	{% endif %}
+	
+	{% if perms.clientes.add_cliente or perms.clientes.change_cliente or perms.clientes.delete_cliente %}
+	<li>
+		<a href="/admin/clientes/cliente/">LISTAR</a>
+	</li>
+	{% endif %}
+	
+
+{% elif '/admin/proveedores' in request.path %}
+
+	{% if perms.proveedores.add_proveedor %}
+	<li>
+		<a href="/admin/proveedores/proveedor/add/">AGREGAR</a>
+	</li>
+	{% endif %}
+	
+	{% if perms.proveedores.add_proveedor or perms.proveedores.change_proveedor or perms.proveedores.delete_proveedor %}
+	<li>
+		<a href="/admin/proveedores/proveedor/">LISTAR</a>
+	</li>
+	{% endif %}
+	
+
+{% elif '/admin/funcionarios' in request.path %}
+
+	{% if perms.funcionarios.add_funcionario %}
+	<li>
+		<a href="/admin/funcionarios/funcionario/add/">AGREGAR</a>
+	</li>
+	{% endif %}
+	
+	{% if perms.funcionarios.add_funcionario or perms.funcionarios.change_funcionario or perms.funcionarios.delete_funcionario %}
+	<li>
+		<a href="/admin/funcionarios/funcionario/">LISTAR</a>
+	</li>
+	{% endif %}
+
+
+
+
+{% elif '/admin/ingredientes' in request.path %}
+	{% if perms.ingredientes.add_unidaddemedida or perms.ingredientes.change_unidaddemedida or perms.ingredientes.delete_unidaddemedida %}
+	<li>
+		<a href="#">UNIDADES DE MEDIDA<span class="fa arrow"></span></a>
+		<ul class="nav nav-second-level">
+			{% if perms.ingredientes.add_unidaddemedida %}
+			<li>
+				<a href="/admin/ingredientes/unidaddemedida/add/">AGREGAR</a>
+			</li>
+			{% endif %}
+			
+			<li>
+				<a href="/admin/ingredientes/unidaddemedida/">LISTAR</a>
+			</li>
+		</ul>
+		<!-- /.nav-second-level -->
+	</li>
+	{% endif %}
+	
+	{% if perms.ingredientes.add_categoriadeingrediente or perms.ingredientes.change_categoriadeingrediente or perms.ingredientes.delete_categoriadeingrediente %}
+	<li>
+		<a href="#">CATEGORIAS DE MATERIAL<span class="fa arrow"></span></a>
+		<ul class="nav nav-second-level">
+			{% if perms.ingredientes.add_categoriadeingrediente %}
+			<li>
+				<a href="/admin/ingredientes/categoriadeingrediente/add/">AGREGAR</a>
+			</li>
+			{% endif %}
+	
+			<li>
+				<a href="/admin/ingredientes/categoriadeingrediente/">LISTAR</a>
+			</li>
+		</ul>
+		<!-- /.nav-second-level -->
+	</li>
+	{% endif %}
+
+	{% if perms.ingredientes.add_ingrediente or perms.ingredientes.change_ingrediente or perms.ingredientes.delete_ingrediente %}
+	<li>
+		<a href="#">INGREDIENTES<span class="fa arrow"></span></a>
+		<ul class="nav nav-second-level">
+			{% if perms.ingredientes.add_ingrediente %}
+			<li>
+				<a href="/admin/ingredientes/ingrediente/add/">AGREGAR</a>
+			</li>
+			{% endif %}
+	
+			<li>
+				<a href="/admin/ingredientes/ingrediente/">LISTAR</a>
+			</li>
+		</ul>
+		<!-- /.nav-second-level -->
+	</li>
+	{% endif %}
+
+{% elif '/admin/recetas' in request.path %}
+
+	{% if perms.recetas.add_receta %}
+	<li>
+		<a href="/admin/recetas/receta/add/">AGREGAR</a>
+	</li>
+	{% endif %}
+	
+	{% if perms.recetas.add_receta or perms.recetas.change_receta or perms.recetas.delete_receta %}
+	<li>
+		<a href="/admin/recetas/receta/">LISTAR</a>
+	</li>
+	{% endif %}
+
+{% elif '/admin/ordenes' in request.path %}
+
+	{% if perms.ordenes.add_orden %}
+	<li>
+		<a href="/admin/ordenes/orden/add/">AGREGAR</a>
+	</li>
+	{% endif %}
+	
+	{% if perms.ordenes.add_orden or perms.ordenes.change_orden or perms.ordenes.delete_orden %}
+	<li>
+		<a href="/admin/ordenes/orden/">LISTAR</a>
+	</li>
+	{% endif %}
+
+
+{% endif %}
+</ul>
